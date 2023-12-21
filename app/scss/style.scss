@@ -50,7 +50,7 @@
     }
 
     &__btn:first-child {
-      margin-right: 35px;
+      margin-right: 15px;
     }
 
     &__btn {
@@ -220,6 +220,7 @@
 .category-filter {
   display: flex;
   align-items: center;
+  justify-content: center;
 
   &__item:not(:last-child) {
     margin-right: 20px;
@@ -255,10 +256,11 @@
     justify-content: space-between;
     max-width: 210px;
     width: 100%;
-    padding: 20px 35px 27px 35px;
+    padding: 15px 15px 27px 15px;
     box-shadow: 0 0 0 1px #ECECEC;
-    text-align: center;
+    align-items: center;
     border-radius: 5px;
+    cursor: pointer;
   }
 
   &__item:hover {
@@ -273,7 +275,7 @@
     font-size: 15px;
     @extend %rubik-400;
     line-height: normal;
-    margin-bottom: 28px;
+    margin-bottom: 10px;
   }
 
   &__price {
@@ -288,13 +290,14 @@
     padding: 7px 14px;
     @extend %btn-large;
     @extend %rubik-400;
+    max-width: 100px;
   }
 }
 
 .footer-top {
   padding-bottom: 85px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   &__logo {
     margin-bottom: 30px;
