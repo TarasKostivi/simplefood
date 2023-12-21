@@ -2,6 +2,17 @@ $default: #FF6838;
 $accent: #31352B;
 $title: #363853;
 
+%bc-images {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+%btn-active {
+  border-radius: 5px;
+  background-color: $default;
+}
+
 %rubik-300 {
   font-family: 'Rubik-Light', sans-serif;
   font-weight: 300;
