@@ -24,7 +24,27 @@ body {
   padding: 0 15px;
 }
 
-.title  {
+.d-flex {
+  display: flex;
+}
+
+.f-alc {
+  align-items: center;
+}
+
+.f-jcsb {
+  justify-content: space-between;
+}
+
+.f-jcse {
+  justify-content: space-evenly;
+}
+
+.f-dc {
+  flex-direction: column;
+}
+
+.title {
   font-size: 36px;
   color: $accent;
   font-weight: 500;
@@ -33,40 +53,29 @@ body {
   margin-bottom: 60px;
 }
 
-.section  {
+.section {
   padding: 60px 0;
-}
-
-.mixitup-control-active {
-  @extend %btn-active;
-  color: #fff;
-    path {
-      fill: #fff;
-    }
 }
 
 .animation {
   font-size: 18px;
   line-height: 1.3;
   border-radius: 6px;
-  transition: box-shadow 0.3s, color 0.3s;
-}
+  transition: box-shadow 0.3s, text-shadow 0.3s, color 0.3s;
 
-.animation:hover {
-  border-radius: 6px;
-  color: $default;
-}
+  &:hover {
+    color: $default;
+  }
 
-.animation:focus {
-  border-radius: 6px;
-  box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
-}
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($default, 0.70);
+  }
 
-.animation:active {
-  border-radius: 6px;
-  color: $accent;
-  box-shadow: none;
-  text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
+  &:active {
+    color: $accent;
+    box-shadow: none;
+    text-shadow: 2px 2px 5px rgba($accent, 0.50);
+  }
 }
 
 .sr-only {

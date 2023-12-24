@@ -12,7 +12,7 @@
     padding: 3px 1px;
     &:focus {
       opacity: 0.9;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($default, 0.70);
     }
 
     &:active {
@@ -24,36 +24,14 @@
     }
   }
 
-}
-
-.menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  &__list {
-    display: flex;
-    margin-left: auto;
-    margin-right: 60px;
-  }
-
-  &__item:not(:last-child) {
-    margin-right: 40px
-  }
-
-  &__link--active {
-    color: $default;
-  }
-
-  .user {
-    &__nav {
-      display: flex;
-    }
-
-    &__btn:first-child {
+  .user-list {
+    &__item:not(:last-child) {
       margin-right: 15px;
     }
-
+    &__icon {
+      width: 21px;
+      height: 21px;
+    }
     &__btn {
       position: relative;
       width: 44px;
@@ -70,7 +48,7 @@
         }
 
         background-color: rgba(255, 104, 56, 0.10);
-        box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+        box-shadow: 0px 0px 0px 2px rgba($default, 0.70);
       }
 
       &:hover {
@@ -117,15 +95,24 @@
   }
 }
 
+.menu {
+  &__list {
+    margin-left: auto;
+    margin-right: 60px;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 40px
+  }
+
+  &__link--active {
+    color: $default;
+  }
+}
+
 
 .wrapper {
   padding-bottom: 60px;
-
-  &__inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 
   &__title {
     font-size: 66px;
@@ -157,13 +144,13 @@
 
   &__btn:first-child:hover {
     background-color: rgba(255, 255, 255, 0.10);
-    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70), 0 5px 12px 0 rgba(255, 104, 56, 0.20);
+    box-shadow: 0 0 0 2px rgba($default, 0.70), 0 5px 12px 0 rgba(255, 104, 56, 0.20);
     color: $default;
   }
 
   &__btn:first-child:focus {
     background-color: rgba(255, 104, 56, 0.10);
-    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+    box-shadow: 0 0 0 2px rgba($default, 0.70);
     color: $default;
   }
 
@@ -220,9 +207,6 @@
 }
 
 .category-filter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &__item:not(:last-child) {
     margin-right: 20px;
@@ -240,14 +224,14 @@
     transition: background-color 0.3s, box-shadow 0.3s, color  0.3s, fill 0.3s;
     &:hover {
       background-color: rgba(255, 104, 56, 0.10);
-      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0px 0px 0px 2px rgba($default, 0.70);
       color: $default;
       path {
         fill: $default;
       }
     }
     &:focus {
-      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0px 0px 0px 2px rgba($default, 0.70);
     }
     &:active {
       background-color: #FFF;
@@ -259,6 +243,14 @@
     }
   }
 
+  .mixitup-control-active {
+  @extend %btn-active;
+  color: #fff;
+    path {
+      fill: #fff;
+    }
+  }
+
   .button-icon {
     position: absolute;
     left: 32px;
@@ -267,19 +259,15 @@
 }
 
 .category-content {
-  display: flex;
   flex-wrap: wrap;
   gap: 30px;
   margin-bottom: 60px;
 
   &__item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     max-width: 210px;
     width: 100%;
     padding: 15px 15px 27px 15px;
-    box-shadow: 0 0 0 1px #ECECEC;
+    box-shadow: 0 0 0 1px $bg;
     align-items: center;
     border-radius: 5px;
     cursor: pointer;
@@ -319,11 +307,6 @@
 }
 
 .delivery {
-  &__inner {
-    display: flex;
-    justify-content: space-around ;
-    align-items: center;
-  }
   &__img {
     height: 585px;
   }
@@ -395,9 +378,6 @@
   }
   &__item-info {
     padding: 0 20px 20px 23px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
   &__item-time {
     padding-left: 32px;
@@ -423,7 +403,7 @@
     transition: padding 0.3s, box-shadow 0.3s, background-color 0.3s, fill 0.3s;
     &:hover {
       padding-left: 50px;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($default, 0.70);
       background-color: #fff;
       path {
       fill: $default;
@@ -432,7 +412,7 @@
     &:focus {
       background-color: #FFF2ED;
       padding-left: 28px;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($default, 0.70);
       path {
         fill: $default;
       }
@@ -450,8 +430,6 @@
 
 .footer-top {
   padding-bottom: 85px;
-  display: flex;
-  justify-content: space-evenly;
 
   &__logo {
     margin-bottom: 30px;
@@ -461,7 +439,7 @@
   &__form-input {
     max-width: 200px;
     border-radius: 5px;
-    box-shadow: 0 0 0 2px #C2C2C2;
+    box-shadow: 0 0 0 2px $title-sm;
     border: none;
     font-weight: 400;
     font-size: 14px;
@@ -470,7 +448,7 @@
     transition: box-shadow 0.3s;
 
     &:focus {
-      box-shadow: 0 0 0 2px #FF6838;
+      box-shadow: 0 0 0 2px $default;
       border: none;
     }
 
@@ -494,7 +472,7 @@
 
     &:hover {
       background-color: #fff;
-      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70), 0px 5px 12px 0px rgba(255, 104, 56, 0.20);
+      box-shadow: 0px 0px 0px 2px rgba($default, 0.70), 0px 5px 12px 0px rgba(255, 104, 56, 0.20);
       color: $default;
 
       .footer-top__icon {
@@ -505,8 +483,8 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
-      background-color: rgba(255, 104, 56, 0.10);
+      box-shadow: 0 0 0 2px rgba($default, 0.70);
+      background-color: rgba(255, 104, 56, 0.1);
       color: $default;
 
       .footer-top__icon {
@@ -592,21 +570,12 @@
     width: 20px;
   }
 
-  &__social {
-    display: flex;
-    align-items: center;
-  }
-
   &__social-item:not(:last-child) {
     margin-right: 12px;
   }
 
   &__social-link {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ECECEC;
+    background-color: $bg;
     padding: 8px 15px;
     border-radius: 50%;
     width: 39px;
@@ -624,7 +593,7 @@
 
     &:focus {
       background-color: #FFF2ED;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($default, 0.70);
 
       path {
         fill: $accent;
@@ -643,7 +612,7 @@
 
 .footer-bottom {
   text-align: center;
-  background-color: #363853;
+  background-color: $title;
   width: 100%;
   padding: 30px 0;
 
@@ -652,7 +621,3 @@
     font-size: 14px;
   }
 }
-
-
-
-@import 'media';
