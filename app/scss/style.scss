@@ -505,7 +505,7 @@
 .footer-top {
   padding-bottom: 85px;
   display: grid;
-  grid-template-columns: 200px auto 230px;
+  grid-template-columns: 200px 570px 230px;
   grid-column-gap: 70px;
 
   &__logo {
@@ -580,8 +580,8 @@
 
 .contact-list {
   display: grid;
-  grid-template-columns: 140px 128px 140px;
-  grid-column-gap: 90px;
+  grid-template-columns: 140px 105px 140px;
+  grid-column-gap: 75px;
   line-height: 1.3;
 }
 
@@ -590,6 +590,7 @@
     position: relative;
     padding-left: 40px;
     margin-bottom: 15px;
+    font-size: 16px;
     display: block;
 
     &::before {
