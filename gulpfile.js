@@ -84,27 +84,28 @@ function images() {
 }
 
 function svgSprites() {
-  return src('app/images/icons/*.svg') 
-  .pipe(cheerio({
-        run: ($) => {
-            $("[fill]").removeAttr("fill"); 
-            $("[stroke]").removeAttr("stroke"); 
-            $("[style]").removeAttr("style"); 
+  return src('app/images/icons/*.svg')
+    .pipe(cheerio({
+      run: ($) => {
+        $("[fill]").removeAttr("fill");
+        $("[stroke]").removeAttr("stroke");
+        $("[style]").removeAttr("style");
+      },
+      parserOptions: {
+        xmlMode: true
+      },
+    }))
+    .pipe(replace('&gt;', '>'))
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: '../sprite.svg',
+          },
         },
-        parserOptions: { xmlMode: true },
       })
-  )
-	.pipe(replace('&gt;','>'))
-	.pipe(
-	      svgSprite({
-	        mode: {
-	          stack: {
-	            sprite: '../sprite.svg', 
-	          },
-	        },
-	      })
-	    )
-	.pipe(dest('app/images')); 
+    )
+    .pipe(dest('app/images'));
 }
 
 function build() {

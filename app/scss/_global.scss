@@ -97,18 +97,18 @@ body {
 
   &:hover {
     background-color: rgba($decor, 0.10);
-    box-shadow: 0 0 0 2px rgba($default, 0.70), 0 5px 12px 0 rgba($default,0.20);
+    box-shadow: 0 0 0 2px rgba($default, 0.70), 0 5px 12px 0 rgba($default, 0.20);
     color: $default;
   }
 
   &:focus {
-    background-color: rgba($default,0.10);
+    background-color: rgba($default, 0.10);
     box-shadow: 0 0 0 2px rgba($default, 0.70);
     color: $default;
   }
 
   &:active {
-    background-color: rgba($default,0.10);
+    background-color: rgba($default, 0.10);
     box-shadow: none;
     color: $default;
   }
