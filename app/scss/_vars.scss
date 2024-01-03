@@ -1,6 +1,12 @@
-$default: #FF6838;
-$accent: #31352B;
+$default: #ff6738;
 $title: #363853;
+$accent: #31352B;
+$text: #505050;
+$title-sm: #c2c2c2;
+$bg: #ECECEC;
+$decor: #fff;
+$btn-anim: #FFF2ED;
+
 
 %bc-images {
   background-repeat: no-repeat;
@@ -15,25 +21,10 @@ $title: #363853;
 
 %btn-large {
   font-size: 18px;
-  @extend %rubik-400;
+  font-weight: 400;
   background-color: $default;
   padding: 12px 32px;
-  color: #fff;
+  color: $decor;
   line-height: 1.3;
   border-radius: 6px;
-}
-
-%rubik-300 {
-  font-family: 'Rubik-Light', sans-serif;
-  font-weight: 300;
-}
-
-%rubik-400 {
-  font-family: 'Rubik-Regular', sans-serif;
-  font-weight: 400;
-}
-
-%rubik-500 {
-  font-family: 'Rubik-Medium', sans-serif;
-  font-weight: 500;
 }
