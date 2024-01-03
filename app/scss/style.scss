@@ -235,7 +235,7 @@
   }
 
   &__content {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
 }
 
@@ -423,6 +423,7 @@
     width: 100%;
     transition: box-shadow 0.4s;
     cursor: pointer;
+
     &:hover {
       box-shadow: 0px 3px 15px 0px rgba(255, 104, 56, 0.50);
     }
@@ -467,9 +468,10 @@
     width: 79px;
     position: relative;
     transition: box-shadow 0.3s, background-color 0.3s, fill 0.3s, left 0.5s;
-    
+
     &:hover {
       padding-left: 50px;
+
       .top-product__icon {
         fill: $default;
         left: 70%;
@@ -478,6 +480,7 @@
 
     &:focus {
       padding-left: 28px;
+
       .top-product__icon {
         fill: $default;
       }
@@ -486,12 +489,13 @@
     &:active {
       padding-left: 28px;
       box-shadow: none;
+
       .top-product__icon {
         fill: $default;
       }
     }
   }
-  
+
   &__icon {
     position: absolute;
     width: 14px;
@@ -504,18 +508,76 @@
 }
 
 .slider {
+  position: relative;
+
+  &__arrow {
+    position: absolute;
+    bottom: 2px;
+    border: none;
+    background-color: transparent;
+    padding: 8px 13px 8px 10px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease-in-out;
+    border: 3px solid $title-sm;
+    cursor: pointer;
+    outline: transparent;
+    display: flex;
+    transition: border-color 0.3s, background-color 0.3s, fill 0.3s, box-shadow 0.3s;
+
+    &-icon {
+      width: 10px;
+      height: 18px;
+      fill: $title-sm;
+    }
+
+    &:hover {
+      border-color: rgba($default, 0.50);
+      background-color: $btn-anim;
+
+      .slider__arrow-icon {
+        fill: rgba($default, 0.50);
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $default;
+    }
+
+    &:active {
+      box-shadow: none;
+      border-color: transparent;
+      background-color: $btn-anim;
+
+      .slider__arrow-icon {
+        fill: $default;
+      }
+    }
+  }
+
+  &__arrow--prev {
+    left: 40%;
+  }
+
+  &__arrow--next {
+    right: 40%;
+    transform: rotate(180deg);
+  }
+
   &__img {
     max-width: 300px;
     height: 300px;
     border-radius: 50%;
   }
+
   &__item {
     display: flex !important;
   }
+
   &__box {
     max-width: 649px;
     padding: 0 40px;
     position: relative;
+
     &::before,
     &::after {
       content: '';
@@ -523,7 +585,7 @@
       width: 24px;
       height: 19px;
       background-image: url('../images/icons/quotes-icon.png');
-      @extend %bc-images;  
+      @extend %bc-images;
     }
 
     &::before {
@@ -537,15 +599,18 @@
       bottom: 100px;
     }
   }
+
   &__blockquote {
     font-style: italic;
     margin-bottom: 30px;
   }
+
   &__figcaption {
     color: $default;
     display: block;
     font-weight: 500;
   }
+
   &__subtitle {
     display: block;
     color: $accent;
@@ -554,18 +619,73 @@
     margin-top: 15px;
     font-weight: 400;
   }
+
+  .slick-list {
+    margin-bottom: 13px;
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+
+    li {
+      padding: 10px 0;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+
+      button {
+        padding: 0;
+        font-size: 0;
+        background-color: $title-sm;
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        transition: border-color 0.3s, background-color 0.3s, fill 0.3s, box-shadow 0.3s;
+
+        &:hover {
+          box-shadow: 0 0 0 2px rgba($default, 0.70);
+          background-color: rgba($default, 0.50);
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px $default;
+        }
+
+        &:active {
+          box-shadow: none;
+          background-color: rgba($default, 0.50);
+
+          .slider__arrow-icon {
+            fill: $default;
+          }
+        }
+      }
+
+
+      &.slick-active {
+        button {
+          background-color: $default;
+          box-shadow: none;
+        }
+      }
+    }
+  }
 }
 
 .downoload-app {
   &__title {
     margin-bottom: 45px;
   }
-  &__text  {
+
+  &__text {
     max-width: 470px;
     margin-bottom: 30px;
   }
-  &__button  {
-    @extend %btn-app;
+
+  &__item:not(:last-child) {
+    margin-right: 30px;
   }
 }
 
@@ -653,8 +773,9 @@
 
 .address-list {
   &__link {
+    line-height: 32px;
     position: relative;
-    padding-left: 40px;
+    padding-left: 32px;
     margin-bottom: 15px;
     font-size: 16px;
     display: block;
