@@ -2,11 +2,12 @@
 @import 'fonts';
 @import 'vars';
 @import 'libs';
+@import 'mixins';
 @import 'global';
 
 
 .header {
-  padding: 60px 0;
+  padding: 57px 0;
 
   &__logo {
     transition: box-shadow 0.3s, opacity 0.3s;
@@ -33,7 +34,7 @@
   }
 }
 
-.menu {
+.menu-list {
   &__item:not(:last-child) {
     margin-right: 40px
   }
@@ -57,6 +58,7 @@
     height: 21px;
     fill: none;
     stroke: $accent;
+    stroke-width: 1.5;
   }
 
   &__btn {
@@ -146,44 +148,6 @@
     margin-right: 25px;
   }
 
-  &__link {
-    border-radius: 0;
-    line-height: 1.5;
-    border-radius: 5px;
-    position: relative;
-    transition: background-color 0.3s;
-
-    &::after {
-      content: '';
-      position: absolute;
-      height: 1px;
-      width: 100%;
-      background-color: $accent;
-      bottom: 0;
-      left: 0;
-      transform: scaleX(1);
-      transition: transform 0.7s;
-    }
-
-    &:hover::after {
-      text-decoration: none;
-      background-color: transparent;
-      transform: scaleX(0);
-    }
-
-    &:focus::after {
-      border-radius: 6px;
-      text-decoration: none;
-      background-color: transparent;
-      transform: scaleX(0);
-    }
-
-    &:active::after {
-      text-decoration: none;
-      background-color: transparent;
-    }
-  }
-
   &__img {
     @extend %bc-images;
     background-position: right;
@@ -196,47 +160,17 @@
 .category {
   text-align: center;
 
-  &__btn {
-    border-radius: 0;
-    line-height: 1.5;
-    border-radius: 5px;
-    position: relative;
-    transition: background-color 0.3s;
-
-    &::after {
-      content: '';
-      position: absolute;
-      height: 1px;
-      width: 100%;
-      background-color: $accent;
-      bottom: 0;
-      left: 0;
-      transform: scaleX(1);
-      transition: transform 0.7s;
-    }
-
-    &:hover::after {
-      text-decoration: none;
-      background-color: transparent;
-      transform: scaleX(0);
-    }
-
-    &:focus::after {
-      border-radius: 6px;
-      text-decoration: none;
-      background-color: transparent;
-      transform: scaleX(0);
-    }
-
-    &:active::after {
-      text-decoration: none;
-      background-color: transparent;
-    }
-  }
-
   &__content {
     margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 30px;
   }
+
+  &__item {
+    max-width: 210px;
+    width: 100%;
+  }
+
 }
 
 .category-filter {
@@ -290,27 +224,17 @@
   }
 }
 
-.product {
-  flex-wrap: wrap;
-  gap: 30px;
+.product-card {
+  padding: 15px 15px 27px 15px;
+  box-shadow: 0 0 0 1px $bg;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
 
-  &__item {
-    max-width: 210px;
-    width: 100%;
-  }
-
-  &__cart {
-    padding: 15px 15px 27px 15px;
-    box-shadow: 0 0 0 1px $bg;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: box-shadow 0.3s;
-  }
-
-  &__cart:hover {
+  &:hover {
     box-shadow: 0 0 0 1px $default;
   }
 
@@ -336,7 +260,7 @@
 
   &__btn {
     font-size: 14px;
-    padding: 7px 14px;
+    padding: 7px 12px;
     font-weight: 400;
   }
 }
@@ -377,26 +301,25 @@
     }
 
     &::before {
-      content: '';
-      position: absolute;
+      @include pseudo;
       left: 0;
       top: 0;
       width: 34px;
       height: 34px;
       @extend %bc-images;
     }
-  }
 
-  &__item--time::before {
-    background-image: url('../images/icons/icon-timer.svg');
-  }
+    &--time::before {
+      background-image: url('../images/icons/icon-timer.svg');
+    }
 
-  &__item--delivery::before {
-    background-image: url('../images/icons/icon-delivery.svg');
-  }
+    &--delivery::before {
+      background-image: url('../images/icons/icon-delivery.svg');
+    }
 
-  &__item--restoran::before {
-    background-image: url('../images/icons/icon-restorant.svg');
+    &--restoran::before {
+      background-image: url('../images/icons/icon-restorant.svg');
+    }
   }
 
   &__btn {
@@ -413,45 +336,37 @@
   }
 }
 
-.top-product {
+.restaurants-card {
+  background-color: $decor;
+  box-shadow: 0 3px 3px 0 hwb(0 0% 100% / 0.1);
+  border-radius: 10px;
+  max-width: 370px;
+  width: 100%;
+  transition: box-shadow 0.4s;
+  cursor: pointer;
 
-  &__cart {
-    background-color: $decor;
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.10);
-    border-radius: 10px;
-    max-width: 370px;
-    width: 100%;
-    transition: box-shadow 0.4s;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0px 3px 15px 0px rgba(255, 104, 56, 0.50);
-    }
+  &:hover {
+    box-shadow: 0px 3px 15px 0px rgba($default, 0.5);
   }
 
-  &__img {
-    margin-bottom: 15px;
+  &__box {
+    padding: 15px 20px 20px 20px;
   }
 
   &__title {
-    padding-left: 20px;
     margin-bottom: 20px;
     font-weight: 400;
-  }
-
-  &__info {
-    padding: 0 20px 20px 23px;
   }
 
   &__time {
     padding-left: 32px;
     position: relative;
-    color: #31352B;
+    font-size: 18px;
+    color: $accent;
     opacity: 0.9;
 
     &::before {
-      content: '';
-      position: absolute;
+      @include pseudo;
       width: 22px;
       height: 22px;
       left: 0;
@@ -472,7 +387,7 @@
     &:hover {
       padding-left: 50px;
 
-      .top-product__icon {
+      .restaurants-card__icon {
         fill: $default;
         left: 70%;
       }
@@ -507,8 +422,12 @@
   }
 }
 
-.slider {
+.reviews-slider {
   position: relative;
+
+  &__img {
+    margin-right: 40px;
+  }
 
   &__arrow {
     position: absolute;
@@ -524,10 +443,13 @@
     display: flex;
     transition: border-color 0.3s, background-color 0.3s, fill 0.3s, box-shadow 0.3s;
 
-    &-icon {
-      width: 10px;
-      height: 18px;
-      fill: $title-sm;
+    &--prev {
+      left: 40%;
+    }
+
+    &--next {
+      right: 40%;
+      transform: rotate(180deg);
     }
 
     &:hover {
@@ -554,23 +476,21 @@
     }
   }
 
-  &__arrow--prev {
-    left: 40%;
+  &__arrow-icon {
+    width: 10px;
+    height: 18px;
+    fill: $title-sm;
   }
 
-  &__arrow--next {
-    right: 40%;
-    transform: rotate(180deg);
+  .slick-disabled {
+    border: 3px solid #FF6838;
+    background: rgba(255, 255, 255, 0.01);
   }
 
   &__img {
     max-width: 300px;
     height: 300px;
     border-radius: 50%;
-  }
-
-  &__item {
-    display: flex !important;
   }
 
   &__box {
@@ -580,8 +500,7 @@
 
     &::before,
     &::after {
-      content: '';
-      position: absolute;
+      @include pseudo;
       width: 24px;
       height: 19px;
       background-image: url('../images/icons/quotes-icon.png');
@@ -663,7 +582,6 @@
         }
       }
 
-
       &.slick-active {
         button {
           background-color: $default;
@@ -687,11 +605,19 @@
   &__item:not(:last-child) {
     margin-right: 30px;
   }
+
+  &__bk {
+    @extend %bc-images;
+    background-position: right;
+    max-width: 570px;
+    width: 100%;
+    height: 380px;
+  }
 }
 
 .footer-top {
   display: grid;
-  grid-template-columns: 200px 570px 230px;
+  grid-template-columns: repeat(3, auto);
   grid-column-gap: 70px;
 
   &__logo {
@@ -704,85 +630,90 @@
   max-width: 200px;
   width: 100%;
   margin-right: 70px;
+}
 
-  .form {
-    &__input {
-      max-width: 200px;
-      border-radius: 5px;
-      box-shadow: 0 0 0 2px $title-sm;
+.form-user {
+  &__input {
+    max-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px $title-sm;
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 13px 15px;
+    margin-bottom: 12px;
+    transition: box-shadow 0.3s, border 0.3s, color 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 1px $default;
       border: none;
-      font-weight: 400;
-      font-size: 14px;
-      padding: 13px 15px;
-      margin-bottom: 12px;
-      transition: box-shadow 0.3s, border 0.3s, color 0.3s;
-
-      &:focus {
-        box-shadow: 0 0 0 2px $default;
-        border: none;
-      }
-
-      &:hover::placeholder {
-        color: $accent;
-        box-shadow: none;
-      }
     }
 
-    &__button {
-      font-size: 14px;
-      font-weight: 500;
-      padding: 13px 37px 13px 73px;
-      max-width: 200px;
-      width: 100%;
-      position: relative;
-      transition: fill 0.3s, background-color 0.3s;
-      fill: $decor;
-
-      &:hover {
-        background-color: $decor;
-        fill: $default;
-      }
-
-      &:focus {
-        fill: $default;
-      }
-
-      &:active {
-        box-shadow: none;
-        background-color: $btn-anim;
-        fill: $default;
-      }
-
-      &-icon {
-        position: absolute;
-        top: 14px;
-        left: 40px;
-        width: 16px;
-        height: 15px;
-      }
+    &:hover::placeholder {
+      color: $accent;
+      box-shadow: none;
     }
+  }
+
+  &__button {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 13px 37px 13px 73px;
+    width: 100%;
+    position: relative;
+    transition: fill 0.3s, background-color 0.3s;
+    fill: $decor;
+
+    &:hover {
+      background-color: $decor;
+      fill: $default;
+    }
+
+    &:focus {
+      fill: $default;
+    }
+
+    &:active {
+      box-shadow: none;
+      background-color: $btn-anim;
+      fill: $default;
+    }
+  }
+
+  &__button-icon {
+    position: absolute;
+    top: 14px;
+    left: 40px;
+    width: 16px;
+    height: 15px;
   }
 }
 
+
+
 .contact-list {
   display: grid;
-  grid-template-columns: 140px 105px 140px;
+  grid-template-columns: repeat(3, auto);
   grid-column-gap: 75px;
-  line-height: 1.3;
+
+  &__link {
+    margin-bottom: 20px;
+  }
 }
 
 .address-list {
+  &__item {
+    margin-bottom: 15px;
+  }
+
   &__link {
     line-height: 32px;
     position: relative;
-    padding-left: 32px;
-    margin-bottom: 15px;
+    padding: 0 2px 0 32px;
     font-size: 16px;
-    display: block;
 
     &::before {
-      content: '';
-      position: absolute;
+      @include pseudo;
       top: 8px;
       left: 2px;
       width: 15px;
@@ -826,7 +757,6 @@
   &__link {
     background-color: $bg;
     font-size: 16px;
-    padding: 8px 15px;
     border-radius: 50%;
     width: 39px;
     height: 39px;
@@ -841,26 +771,24 @@
       background-color: $btn-anim;
       box-shadow: 0 0 0 2px rgba($default, 0.70);
       fill: $accent;
-
     }
 
     &:active {
       box-shadow: none;
       fill: $default;
     }
-
-    &-icon {
-      width: 9px;
-      height: 20px;
-
-      &:nth-child(1) {
-        width: 20px;
-        height: 60px;
-      }
-    }
   }
 
+  &__link-icon {
+    width: 20px;
+    height: 16px;
+    &:nth-child(2) {
+      width: 9px;
+      height: 20px;
+    }
+  }
 }
+
 
 .footer-bottom {
   text-align: center;
@@ -873,3 +801,5 @@
     font-size: 14px;
   }
 }
+
+
