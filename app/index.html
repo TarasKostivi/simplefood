@@ -29,9 +29,9 @@
             <a class="menu-list__link animation" href="#">Контакти</a>
           </li>
         </ul>
-        <ul class="user-list d-flex">
+        <ul class="user-list d-flex f-alc">
           <li class="user-list__item">
-            <button class="user-list__btn" type="button">
+            <button class="user-list__btn d-flex f-alc f-jcc" type="button">
               <svg class="user-list__icon">
                 <use xlink:href="images/sprite.svg#icon-search"></use>
               </svg>
@@ -39,7 +39,7 @@
             </button>
           </li>
           <li class="user-list__item">
-            <button class="user-list__btn" type="button">
+            <button class="user-list__btn d-flex f-alc f-jcc" type="button">
               <svg class="user-list__icon">
                 <use xlink:href="images/sprite.svg#icon-cart"></use>
               </svg>
@@ -47,7 +47,80 @@
               <span class="user-list__num">4</span>
             </button>
           </li>
+          <li class="user-list__item">
+            <button class="burger" type="button">
+              <span class="burger__line"></span>
+              <span class="sr-only">Відкрити меню</span>
+            </button>
+          </li>
         </ul>
+      </nav>
+      <nav class="menu-burger">
+        <div class="menu-burger__img menu-burger--line">
+          <a class="menu-burger__logo logo" href="#">
+            <img class="logo__img" src="images/logo.svg" alt="логотип сайту" width="200" height="39">
+          </a>
+          <button class="menu-burger__close" type="button">
+            <span class="sr-only">закрыть меню</span>
+          </button>
+        </div>
+        <ul class="menu-burger__list menu-list menu-burger--line d-flex f-dc">
+          <li class="menu-list__item">
+            <a class="menu-list__link animation menu-list__link--active" href="#">Головна</a>
+          </li>
+          <li class="menu-list__item">
+            <a class="menu-list__link animation" href="#">Страви</a>
+          </li>
+          <li class="menu-list__item">
+            <a class="menu-list__link animation" href="#">Контакти</a>
+          </li>
+        </ul>
+        <address class="address">
+          <ul class="address-list">
+            <li class="address-list__item d-flex f-alc">
+              <a class="address-list__link animation address-list__link--location" href="#" target="_blank"> вул.
+                Т.Г.Шевченка, 1
+              </a>
+            </li>
+            <li class="address-list__item d-flex f-alc">
+              <a class="address-list__link animation address-list__link--call" href="tel:380501112233" target="_blank">
+                380501112233
+              </a>
+            </li>
+            <li class="address-list__item d-flex f-alc">
+              <a class="address-list__link animation address-list__link--message" href="mailto:support@sfood.com"
+                target="_blank">
+                support@sfood.com
+              </a>
+            </li>
+          </ul>
+          <ul class="address-social d-flex f-alc">
+            <li class="address-social__item">
+              <a class="address-social__link d-flex f-alc f-jcc" href="#" target="_blank">
+                <svg class="address-social__link-icon">
+                  <use xlink:href="images/sprite.svg#icon-facebook"></use>
+                </svg>
+                <span class="sr-only">перейти на сторінку фейсбуку</span>
+              </a>
+            </li>
+            <li class="address-social__item">
+              <a class="address-social__link d-flex f-alc f-jcc" href="#" target="_blank">
+                <svg class="address-social__link-icon">
+                  <use xlink:href="images/sprite.svg#icon-twitter"></use>
+                </svg>
+                <span class="sr-only">перейти на сторінку твітеру</span>
+              </a>
+            </li>
+            <li class="address-social__item">
+              <a class="address-social__link d-flex f-alc f-jcc" href="#" target="_blank">
+                <svg class="address-social__link-icon">
+                  <use xlink:href="images/sprite.svg#icon-instagram"></use>
+                </svg>
+                <span class="sr-only">перейти на сторінку інстаграму</span>
+              </a>
+            </li>
+          </ul>
+        </address>
       </nav>
     </div>
   </header>
@@ -78,14 +151,13 @@
         </div>
       </div>
     </section>
-
+    
     <section class="category section">
       <div class="container">
         <h2 class="title category__title">Популярне в категоріях</h2>
         <ul class="category-filter d-flex f-alc f-jcc">
           <li class="category-filter__item">
             <button class="button category-filter__item-btn" data-filter="all" type="button">
-              <span class="sr-only">іконка бургеру</span>
               <svg class="button__icon">
                 <use xlink:href="images/sprite.svg#icon-category-burger"></use>
               </svg>
@@ -94,7 +166,6 @@
           </li>
           <li class="category-filter__item">
             <button class="button category-filter__item-btn" data-filter=".category-pizza" type="button">
-              <span class="sr-only">іконка піци</span>
               <svg class="button__icon">
                 <use xlink:href="images/sprite.svg#icon-category-pizza"></use>
               </svg>
@@ -103,7 +174,6 @@
           </li>
           <li class="category-filter__item">
             <button class="button category-filter__item-btn" data-filter=".category-sandwich" type="button">
-              <span class="sr-only">іконка сендвіч</span>
               <svg class="button__icon">
                 <use xlink:href="images/sprite.svg#icon-category-sandvich"></use>
               </svg>
@@ -112,7 +182,6 @@
           </li>
           <li class="category-filter__item">
             <button class="button category-filter__item-btn" data-filter=".category-askitchen" type="button">
-              <span class="sr-only">іконка азійська кухня</span>
               <svg class="button__icon">
                 <use xlink:href="images/sprite.svg#icon-category-asia"></use>
               </svg>
@@ -121,7 +190,6 @@
           </li>
           <li class="category-filter__item">
             <button class="button category-filter__item-btn" data-filter=".category-network" type="button">
-              <span class="sr-only">іконка сети</span>
               <svg class="button__icon">
                 <use xlink:href="images/sprite.svg#icon-category-dish"></use>
               </svg>
@@ -129,7 +197,7 @@
             </button>
           </li>
         </ul>
-        <ul class="category__content d-flex">
+        <ul class="category__content d-flex f-jcc">
           <li class="category__item d-flex f-alc f-dc mix category-pizza">
             <article class="product-card d-flex f-dc">
               <a class="product-card__link" href="#">
@@ -244,7 +312,7 @@
         <button class="category__btn animation animation-line " type="button">Показати ще</button>
       </div>
     </section>
-
+<!--
     <section class="delivery section">
       <div class="container">
         <div class="delivery__inner d-flex f-jcsa f-alc">
@@ -396,7 +464,7 @@
                 height="300">
               <div class="reviews-slider__box">
                 <blockquote class="reviews-slider__blockquote">
-                  <p class="text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже
+                  <p class="reviews-slider__text text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже
                     зручний сайт та застосунок. Їхні доставники дуже ввічливі та пунктуальні. Компанія часто проводить
                     акції та дарує знижки на доставку - однозначно рекомендую!</p>
                 </blockquote>
@@ -414,7 +482,7 @@
                 height="300">
               <div class="reviews-slider__box">
                 <blockquote class="reviews-slider__blockquote">
-                  <p class="text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже
+                  <p class="reviews-slider__text text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже
                     зручний сайт та застосунок. Їхні доставники дуже ввічливі та пунктуальні. Компанія часто проводить
                     акції та дарує знижки на доставку - однозначно рекомендую!</p>
                 </blockquote>
@@ -432,7 +500,7 @@
                 height="300">
               <div class="reviews-slider__box">
                 <blockquote class="slider__blockquote">
-                  <p class="text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже
+                  <p class="reviews-slider__text text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже
                     зручний сайт та застосунок. Їхні доставники дуже ввічливі та пунктуальні. Компанія часто проводить
                     акції та дарує знижки на доставку - однозначно рекомендую!</p>
                 </blockquote>
@@ -450,7 +518,7 @@
                 height="300">
               <div class="reviews-slider__box">
                 <blockquote class="reviews-slider__blockquote">
-                  <p class="text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже
+                  <p class="reviews-slider__text text">SimpleFood - одна з найкращих служб доставки продуктів з ресторанів у місті. Дуже
                     зручний сайт та застосунок. Їхні доставники дуже ввічливі та пунктуальні. Компанія часто проводить
                     акції та дарує знижки на доставку - однозначно рекомендую!</p>
                 </blockquote>
@@ -492,11 +560,11 @@
           <div class="downoload-app__bk" style="background-image: url(images/get-app.jpg);"></div>
         </div>
       </div>
-    </section>
+    </section> -->
 
   </main>
 
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div class="container">
       <div class="footer-top section">
         <h2 class="sr-only">Контактна інфрормація</h2>
@@ -628,7 +696,7 @@
     <div class="footer-bottom">
       <span class="footer-bottom__copy">© 2023 Simple Food</span>
     </div>
-  </footer>
+  </footer> -->
 
   <script src="js/main.min.js"></script>
 </body>
