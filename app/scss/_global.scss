@@ -15,6 +15,7 @@ body {
     overflow: hidden;
     position: relative;
     height: 100vh;
+
     &::after {
       @include pseudo;
       display: block;
@@ -22,11 +23,13 @@ body {
       background-color: rgba($bg-anim, 0.50);
     }
   }
+
   &::-webkit-scrollbar {
     height: 20px;
     width: 20px;
   }
-  &::-webkit-scrollbar-thumb{
+
+  &::-webkit-scrollbar-thumb {
     background-color: $default;
   }
 }
@@ -75,10 +78,12 @@ body {
   color: $accent;
   text-align: center;
   margin-bottom: 60px;
+
   @include mq('tablet') {
     @include font(24px, 1.3, 500);
     margin-bottom: 40px;
   }
+
   @include mq('phone') {
     margin-bottom: 30px;
   }
@@ -90,12 +95,15 @@ body {
 
 .section {
   padding: 60px 0;
+
   @include mq('tablet-2') {
     padding: 50px 0;
   }
+
   @include mq('tablet') {
     padding: 40px 0;
   }
+
   @include mq('phone') {
     padding: 20px 0;
   }
@@ -160,12 +168,12 @@ body {
   &__img {
     padding: 25px 0;
   }
-  
+
   &__list {
     @include mq('tablet') {
       display: block;
       padding: 25px 0;
-      margin-bottom: 15px;  
+      margin-bottom: 15px;
     }
   }
 }
@@ -225,6 +233,7 @@ body {
     box-shadow: none;
     color: $default;
   }
+
   @include mq('tablet') {
     padding: 8px 24px;
     font-size: 14px;

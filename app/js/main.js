@@ -13,6 +13,8 @@ $(function () {
     const mobileMenu = document.querySelector('.menu-burger');
     const bodyLock = document.querySelector('body');
     const burgerClose = document.querySelector(".menu-burger__close");
+
+
     burger.addEventListener("click", () => {
       mobileMenu.classList.add("menu-burger--active");
       if (mobileMenu.classList.contains("menu-burger--active")) {
@@ -36,8 +38,7 @@ $(function () {
       e.stopPropagation();
     });
   });
-
-
+  
   $(".reviews-slider__inner").slick({
     dots: true,
     infinite: false,
