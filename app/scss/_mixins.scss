@@ -127,3 +127,53 @@ $breakpoints: (
   }
 }
 
+@mixin slickDots($dFlex: flex, $jcc: center) {
+  .slick-dots {
+    display: $dFlex;
+    justify-content: $jcc;
+
+    li {
+      padding: 10px 0;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+
+      button {
+        padding: 0;
+        font-size: 0;
+        background-color: $title-sm;
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        transition: border-color 0.3s, background-color 0.3s, fill 0.3s, box-shadow 0.3s;
+
+        &:hover {
+          box-shadow: 0 0 0 2px rgba($default, 0.70);
+          background-color: rgba($default, 0.50);
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px $default;
+        }
+
+        &:active {
+          box-shadow: none;
+          background-color: rgba($default, 0.50);
+
+          .slider__arrow-icon {
+            fill: $default;
+          }
+        }
+      }
+
+      &.slick-active {
+        button {
+          background-color: $default;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+

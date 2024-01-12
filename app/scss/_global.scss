@@ -22,6 +22,13 @@ body {
       background-color: rgba($bg-anim, 0.50);
     }
   }
+  &::-webkit-scrollbar {
+    height: 20px;
+    width: 20px;
+  }
+  &::-webkit-scrollbar-thumb{
+    background-color: $default;
+  }
 }
 
 .main {
@@ -64,10 +71,17 @@ body {
 
 .title {
   @include font(36px, 1.3, 500);
-  @include line-clamp(2);
+  @include line-clamp(3);
   color: $accent;
   text-align: center;
   margin-bottom: 60px;
+  @include mq('tablet') {
+    @include font(24px, 1.3, 500);
+    margin-bottom: 40px;
+  }
+  @include mq('phone') {
+    margin-bottom: 30px;
+  }
 }
 
 .t-left {
@@ -76,6 +90,15 @@ body {
 
 .section {
   padding: 60px 0;
+  @include mq('tablet-2') {
+    padding: 50px 0;
+  }
+  @include mq('tablet') {
+    padding: 40px 0;
+  }
+  @include mq('phone') {
+    padding: 20px 0;
+  }
 }
 
 .animation {
@@ -147,8 +170,6 @@ body {
   }
 }
 
-
-
 .animation-line {
   border-radius: 0;
   @include font(20px, 1.5, 400);
@@ -175,6 +196,10 @@ body {
     border-radius: 6px;
     transform: scaleX(0);
   }
+
+  @include mq('tablet') {
+    font-size: 14px;
+  }
 }
 
 
@@ -199,6 +224,10 @@ body {
     background-color: rgba($default, 0.10);
     box-shadow: none;
     color: $default;
+  }
+  @include mq('tablet') {
+    padding: 8px 24px;
+    font-size: 14px;
   }
 }
 
