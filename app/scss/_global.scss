@@ -5,13 +5,33 @@ body {
 
 body {
   color: $accent;
-  font-size: 20px;
-  line-height: 1.5;
+  @include font(20px, 1.5, 400);
   font-family: 'Rubik', sans-serif;
-  font-weight: 400;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: $default-bc;
+
+  &.lock {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+
+    &::after {
+      @include pseudo;
+      display: block;
+      inset: 0;
+      background-color: rgba($bg-anim, 0.50);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    height: 20px;
+    width: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $default;
+  }
 }
 
 .main {
@@ -53,12 +73,20 @@ body {
 }
 
 .title {
-  font-size: 36px;
+  @include font(36px, 1.3, 500);
+  @include line-clamp(3);
   color: $accent;
-  font-weight: 500;
-  line-height: 1.3;
   text-align: center;
   margin-bottom: 60px;
+
+  @include mq('tablet') {
+    @include font(24px, 1.3, 500);
+    margin-bottom: 40px;
+  }
+
+  @include mq('phone') {
+    margin-bottom: 30px;
+  }
 }
 
 .t-left {
@@ -67,11 +95,23 @@ body {
 
 .section {
   padding: 60px 0;
+
+  @include mq('tablet-2') {
+    padding: 50px 0;
+  }
+
+  @include mq('tablet') {
+    padding: 40px 0;
+  }
+
+  @include mq('phone') {
+    padding: 20px 0;
+  }
 }
 
 .animation {
-  font-size: 18px;
-  line-height: 1.3;
+  @include font(18px, 1.3, 400);
+  @include line-clamp(1);
   border-radius: 6px;
   transition: box-shadow 0.3s, text-shadow 0.3s, color 0.3s;
 
@@ -89,6 +129,87 @@ body {
     text-shadow: 2px 2px 5px rgba($accent, 0.50);
   }
 }
+
+.burger {
+  display: none;
+
+  @include mq('tablet') {
+    display: block;
+  }
+
+  @include burger();
+}
+
+.menu-burger {
+  &__close {
+    @include burger-close();
+  }
+
+  position: absolute;
+  background-color: $decor;
+  padding: 25px 15px;
+  inset: 0;
+  width: 85%;
+  height: 100vh;
+  overflow-x: auto;
+  display: block;
+  transition: transform 0.5s;
+  transform: translateX(-200%);
+  z-index: 200;
+
+  &--active {
+    transform: translateX(0%);
+  }
+
+  &--line {
+    border-bottom: 1px solid $border-top;
+  }
+
+  &__img {
+    padding: 25px 0;
+  }
+
+  &__list {
+    @include mq('tablet') {
+      display: block;
+      padding: 25px 0;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.animation-line {
+  border-radius: 0;
+  @include font(20px, 1.5, 400);
+  border-radius: 5px;
+  position: relative;
+  transition: background-color 0.3s;
+
+  &::after {
+    @include pseudo;
+    height: 1px;
+    width: 100%;
+    background-color: $accent;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(1);
+    transition: transform 0.7s;
+  }
+
+  &:hover::after {
+    transform: scaleX(0);
+  }
+
+  &:focus::after {
+    border-radius: 6px;
+    transform: scaleX(0);
+  }
+
+  @include mq('tablet') {
+    font-size: 14px;
+  }
+}
+
 
 .animation-btn {
   @extend %btn-large;
@@ -111,6 +232,11 @@ body {
     background-color: rgba($default, 0.10);
     box-shadow: none;
     color: $default;
+  }
+
+  @include mq('tablet') {
+    padding: 8px 24px;
+    font-size: 14px;
   }
 }
 

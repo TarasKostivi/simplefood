@@ -1,12 +1,21 @@
+@import 'mixins';
 $default: #ff6738;
 $title: #363853;
 $accent: #31352B;
 $text: #505050;
 $title-sm: #c2c2c2;
+$default-bc: #F9FAFF;
 $bg: #ECECEC;
 $decor: #fff;
 $btn-anim: #FFF2ED;
+$bg-anim: #000;
+$border-top: #EEEFF3;
 
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
 
 %bc-images {
   background-repeat: no-repeat;
@@ -20,11 +29,9 @@ $btn-anim: #FFF2ED;
 }
 
 %btn-large {
-  font-size: 18px;
-  font-weight: 400;
+  @include font(18px, 1.3, 400);
   background-color: $default;
   padding: 12px 32px;
   color: $decor;
-  line-height: 1.3;
   border-radius: 6px;
 }
