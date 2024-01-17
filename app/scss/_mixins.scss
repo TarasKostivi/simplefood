@@ -1,5 +1,5 @@
-@mixin burger($burgerWidth: 30px,
-  $burgerHeight: 20px,
+@mixin burger($burgerWidth: 44px,
+  $burgerHeight: 44px,
   $burgerColor: $title,
   $burgerLineHeight: 2px,
 ) {
@@ -14,7 +14,7 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
+    width: 30px;
     height: $burgerLineHeight;
     background-color: currentColor;
     transition: transform 0.3s ease-in-out;
@@ -24,42 +24,35 @@
   &::after {
     @include pseudo();
     left: 0;
-    width: 100%;
+    width: 30px;
     height: $burgerLineHeight;
     background-color: currentColor;
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
   }
 
   &::before {
-    top: 0;
+    top: 10px;
   }
 
   &::after {
-    top: calc(100% - $burgerLineHeight);
+    top: calc(100% - 13px);
   }
 }
 
-@mixin burger-close ($burgerCloseWidth: 21px,
-  $burgerCloseHeight: 21px,
+@mixin burger-close ($posrel: relative, $burgerCloseWidth: 44px,
+  $burgerCloseHeight: 44px,
   $burgerCloseColor: $title,
-  $burgerCloseRight: 20px,
-  $burgerCloseTop: 57px,
 ) {
+  position: $posrel;
   width: $burgerCloseWidth;
   height: $burgerCloseHeight;
-  position: absolute;
-  right: $burgerCloseRight;
-  top: $burgerCloseTop;
-  z-index: 4;
-  border: none;
-  background-color: transparent;
 
   &::before,
   &::after {
     content: "";
     position: absolute;
     left: 0;
-    width: 100%;
+    width: 30px;
     height: 1px;
     border-radius: 2px;
     background-color: $burgerCloseColor;
@@ -107,7 +100,9 @@
   position: $pos;
 }
 
-$breakpoints: ("phone": 560px,
+$breakpoints: (
+  "phone-sm": 376px,
+  "phone": 560px,
   "tablet": 768px,
   "tablet-2": 992px,
   "desktop": 1230px);
@@ -121,6 +116,20 @@ $breakpoints: ("phone": 560px,
     }
 
     @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-height($height, $type: max) {
+  @if map_has_key($breakpoints, $height) {
+    $height: map_get($breakpoints, $height);
+
+    @if $type==min {
+      $height: $height - 1px;
+    }
+
+    @media only screen and (#{$type}-height: $height) {
       @content;
     }
   }

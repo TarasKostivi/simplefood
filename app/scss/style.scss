@@ -27,6 +27,10 @@
     padding: 25px 0;
   }
 
+  @include mq-height('phone') {
+    padding: 25px 0;
+  }
+
   &__logo {
     transition: box-shadow 0.3s, opacity 0.3s;
     border-radius: 5px;
@@ -47,8 +51,9 @@
   }
 
   @include mq('tablet') {
-    .logo__img {
+    &__logo-img {
       width: 115px;
+      height: 23px;
     }
   }
 
@@ -150,37 +155,33 @@
     color: $decor;
     text-align: center;
   }
-}
 
+  @include mq('tablet') {
+    margin-left: auto;
+    padding-right: 20px;
+  }
+}
 
 .hero-section {
   padding-top: 159px;
   padding-bottom: 60px;
 
+  @include mq-height('phone') {
+    padding-top: 90px;
+  }
+
   @include mq('tablet') {
-    padding-bottom: 0;
+    padding-top: 107px;
+  }
+
+  @include mq('phone') {
+    padding-bottom: 50px;
   }
 
   &__inner {
     @include mq('tablet-2') {
       position: relative;
     }
-
-    @include mq('tablet') {
-      justify-content: flex-end;
-    }
-  }
-
-  &__content {
-    @include mq('tablet-2') {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-color: rgba(249, 250, 255, 0.85);
-    }
-
   }
 
   &__title {
@@ -195,7 +196,7 @@
       @include font(55px, 1.3, 500);
     }
 
-    @include mq('phone') {
+    @include mq('tablet-2') {
       @include font(40px, 1.3, 500);
     }
   }
@@ -212,8 +213,13 @@
     margin-bottom: 20px;
     @include line-clamp(4);
 
-    @include mq('phone') {
+    @include mq('tablet-2') {
+      @include font(18px, 1.5, 400);
+    }
+
+    @include mq('tablet') {
       @include font(16px, 1.5, 400);
+      max-width: 100%;
     }
   }
 
@@ -227,16 +233,252 @@
     max-width: 560px;
     width: 100%;
     height: 660px;
-    background-color: rgba(249, 250, 255, 0.85);
 
     @include mq('tablet-2') {
-      background-size: contain;
+      max-width: 360px;
+      height: 435px;
     }
 
     @include mq('tablet') {
       max-width: 250px;
       height: 300px;
+      position: absolute;
+      z-index: -5;
+      right: 0;
+      opacity: 0.3;
     }
+
+    @include mq-height('phone') {
+      max-width: 260px;
+      height: 300px;
+    }
+  }
+}
+
+.catalog-product {
+  &__top {
+    margin-bottom: 60px;
+  }
+
+  &__inner {
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__filters {
+    width: 270px;
+    max-width: 100%;
+    margin-right: 30px;
+  }
+
+  .jq-selectbox__select {
+    display: flex;
+    align-items: center;
+    height: 46px;
+    padding: 15px 40px 15px 15px;
+    border: 1px solid $title-sm;
+    border-radius: 3px;
+    background: $decor;
+    box-shadow: none;
+    color: #333;
+    text-shadow: none;
+    font-family: 'Rubik', sans-serif;
+    @include font(14px, 1.2, 400);
+    letter-spacing: 0.02em;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .jq-selectbox__trigger {
+    border-left: none;
+  }
+
+  .jq-selectbox:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .jq-selectbox__trigger-arrow {
+    position: absolute;
+    top: 18px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
+    border: none;
+    background-image: url('../images/icons/icon-chevron-down.svg');
+    @extend %bc-images;
+    background-size: contain;
+  }
+
+  .jq-selectbox__dropdown ul {
+    margin-top: 5px;
+    padding: 15px 40px 15px 15px;
+    border: 1px solid $title-sm;
+    border-radius: 3px;
+    background: $decor;
+    width: inherit;
+  }
+  .jq-selectbox li, .jq-select-multiple li {
+    font-family: 'Rubik', sans-serif;
+    @include font(14px, 1.2, 400);
+    padding: 5px 0;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+  &__item {
+    max-width: 210px;
+    text-align: center;
+  }
+}
+
+.filter {
+  &__item {
+    border: 1px solid $bg;
+    background-color: $decor;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    padding: 15px;
+    @include font(24px, 1.2, 400);
+    letter-spacing: 0.03em;
+    position: relative;
+
+    &::after {
+      @include pseudo();
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $bg;
+    }
+  }
+}
+
+.filter-category {
+  &__label {
+    display: block;
+    @include font(18px, 1, 400);
+    letter-spacing: 0.02em;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__input {
+    @extend %checkbox-hidden;
+  }
+}
+
+.filter-form {
+  padding: 25px 15px;
+}
+
+.filter-offers {
+  &__label {
+    display: block;
+    padding-left: 36px;
+
+    &:not(:last-child) {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__input {
+    @extend %checkbox-hidden;
+
+    &:checked~.filter-offers__checkbox {
+      background-image: url('../images/icons/icon-vector.svg');
+      @extend %bc-images;
+      background-size: 15px 10px;
+      border-color: $title;
+    }
+  }
+
+  &__checkbox {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    border: 1px solid $bg;
+    background-color: rgba($default, 0.20);
+    margin-left: -36px;
+    margin-top: 3px;
+    position: absolute;
+  }
+}
+
+.filter-price {
+  .irs--flat .irs-line {
+    top: 30px;
+    height: 2px;
+    background-color: $title-sm;
+    border-radius: 4px;
+  }
+
+  .irs--flat .irs-bar {
+    top: 30px;
+    height: 2px;
+    background-color: $default;
+  }
+
+  .irs--flat .irs-handle>i:first-child {
+    width: 18px;
+    height: 18px;
+    border-radius: 50px;
+    background-color: $default;
+  }
+
+  .irs-from,
+  .irs-to,
+  .irs-single {
+    display: none;
+  }
+
+  .irs--flat .irs-min,
+  .irs--flat .irs-max {
+    display: none;
+  }
+
+  &__label {
+    @include font(16px, 1.2, 400);
+    color: $title-sm;
+  }
+
+  &__label-box {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__text {
+    letter-spacing: 0.03em;
+    margin-right: 5px;
+  }
+
+  &__from,
+  &__to {
+    padding: 12px 15px;
+    border-radius: 3px;
+    border: 1px solid rgba($default, 0.10);
+    background-color: $back-price;
+    margin-right: 5px;
+    color: $accent;
+    width: 70px;
+    text-align: center;
   }
 }
 
@@ -263,10 +505,12 @@
 
     @include mq('phone') {
       gap: 5px;
+      margin-bottom: 30px;
     }
   }
 
   &__item {
+    background-color: $decor;
     width: 17.5%;
 
     @include mq('desktop') {
@@ -292,9 +536,13 @@
   padding: 5px;
   margin-bottom: 40px;
 
+  @include mq('phone') {
+    margin-bottom: 30px;
+  }
+
   &::-webkit-scrollbar {
-    height: 8px;
-    width: 4px;
+    height: 2px;
+    width: 0;
   }
 
   &::-webkit-scrollbar-track {
@@ -414,38 +662,37 @@
 }
 
 .delivery {
+  &__inner {
+    @include mq('tablet-2') {
+      justify-content: flex-end;
+    }
+  }
+
   &__img {
     @extend %bc-images;
     background-position: left;
     max-width: 440px;
     width: 100%;
     height: 585px;
+    margin-right: 20px;
 
     @include mq('tablet-2') {
-      background-size: contain;
+      max-width: 350px;
+      height: 470px;
+      position: absolute;
+      z-index: -5;
+      left: 0;
+      opacity: 0.3;
+    }
+
+    @include mq('tablet') {
+      max-width: 348px;
+      height: 462px;
     }
   }
-
-  @include mq('tablet-2') {
-    &__inner {
-      justify-content: left;
-      position: relative;
-    }
-  }
-
 
   &__content {
     max-width: 470px;
-
-    @include mq('tablet-2') {
-      max-width: 100%;
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-color: rgba(255, 255, 255, 0.85);
-    }
   }
 
   &__title {
@@ -534,15 +781,20 @@
       display: flex;
       flex-direction: column;
       @include slickDots();
+
+      .slick-list {
+        padding-bottom: 10px;
+      }
     }
   }
+
 }
 
 .restaurants-card {
   &__img {
     border-radius: 10px 10px 0 0;
 
-    @include mq('tablet') {
+    @include mq('tablet-2') {
       width: 100%;
     }
   }
@@ -635,7 +887,7 @@
   position: relative;
 
   &__content {
-    @include mq('tablet-2') {
+    @include mq('tablet') {
       flex-direction: column;
     }
   }
@@ -643,7 +895,7 @@
   &__img {
     margin-right: 40px;
 
-    @include mq('tablet-2') {
+    @include mq('tablet') {
       margin-right: 0;
       margin-bottom: 30px;
     }
@@ -651,7 +903,7 @@
 
   &__arrow {
     position: absolute;
-    bottom: 2px;
+    bottom: 0;
 
     @include mq('phone') {
       top: 28px;
@@ -673,11 +925,11 @@
     box-shadow 0.3s;
     left: 50%;
 
-
     &--prev {
       transform: translateX(-100px);
+      z-index: 5;
 
-      @include mq('tablet') {
+      @include mq('phone') {
         transform: translateX(-140px);
       }
     }
@@ -685,7 +937,7 @@
     &--next {
       transform: translateX(65px) rotate(180deg);
 
-      @include mq('tablet') {
+      @include mq('phone') {
         transform: translateX(100px) rotate(180deg);
       }
     }
@@ -730,6 +982,11 @@
     height: 300px;
     border-radius: 50%;
 
+    @include mq('tablet-2') {
+      max-width: 200px;
+      height: 200px;
+    }
+
     @include mq('phone') {
       max-width: 100px;
       height: 100px;
@@ -768,6 +1025,11 @@
     @include line-clamp(8);
   }
 
+  @include mq('tablet-2') {
+    &__text {
+      font-size: 18px;
+    }
+  }
 
   @include mq('phone') {
     &__text {
@@ -844,6 +1106,18 @@
   }
 }
 
+.promotions-discounts {
+  &__item {
+    max-width: 370px;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  .restaurants-card__title {
+    padding: 15px 20px;
+  }
+}
+
 .footer-top {
   display: grid;
   grid-template-columns: 200px auto auto;
@@ -853,10 +1127,19 @@
     grid-column-gap: 40px;
   }
 
+  @include mq('tablet-2') {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   @include mq('tablet') {
     grid-template-columns: none;
-    grid-column-gap: 20px;
+    grid-column-gap: 70px;
     grid-row-gap: 30px;
+  }
+
+  @include mq('phone') {
+    grid-template-columns: none;
   }
 
   &__logo {
@@ -932,16 +1215,21 @@
 
   @include mq('tablet-2') {
     grid-template-columns: repeat(2, auto);
-    grid-column-gap: 30px;
+    grid-column-gap: 40px;
+    order: 3;
   }
 
   @include mq('tablet') {
-    grid-template-columns: repeat(1, auto);
-    grid-column-gap: 20px;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 70px;
   }
 
   @include mq('phone') {
-    order: 1;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @include mq('phone-sm') {
+    grid-template-columns: repeat(1, auto);
   }
 
   &__link {
@@ -975,7 +1263,6 @@
     &--location {
       &::before {
         background-image: url('../images/icons/icon-location.svg');
-        @extend %bc-images;
       }
     }
 
@@ -984,7 +1271,6 @@
         background-image: url('../images/icons/icon-call.svg');
         width: 19px;
         height: 19px;
-        @extend %bc-images;
       }
     }
 
@@ -992,7 +1278,6 @@
       &::before {
         background-image: url('../images/icons/icon-message.svg');
         width: 20px;
-        @extend %bc-images;
       }
     }
   }

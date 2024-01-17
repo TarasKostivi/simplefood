@@ -10,6 +10,7 @@ $decor: #fff;
 $btn-anim: #FFF2ED;
 $bg-anim: #000;
 $border-top: #EEEFF3;
+$back-price: #FAEDED;
 
 
 $sm: 576px;
@@ -34,4 +35,12 @@ $xl: 1200px;
   padding: 12px 32px;
   color: $decor;
   border-radius: 6px;
+}
+
+%checkbox-hidden {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
 }

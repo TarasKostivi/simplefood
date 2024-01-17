@@ -1,44 +1,32 @@
 $(function () {
 
+  $('.select-style').styler({
+    locale: 'uk',
+    fileBrowse: 'Вибрати',
+  });
+
+  $('.filter-price__input').ionRangeSlider({
+    type: "double",
+    prefix: "₴",
+    onStart: function (data) {
+      $('.filter-price__from').text(data.from),
+      $('.filter-price__to').text(data.to)
+    },
+    
+    onChange: function (data) {
+      $('.filter-price__from').text(data.from); 
+      $('.filter-price__to').text(data.to); 
+    },
+  })
+
   $(window).scroll(function () {
-    if ($(window).scrollTop() > 100) {
+    if ($(window).scrollTop() > 50) {
       $('.header').addClass('header--fixed');
     } else {
       $('.header').removeClass('header--fixed');
     }
   });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const burger = document.querySelector('.burger');
-    const mobileMenu = document.querySelector('.menu-burger');
-    const bodyLock = document.querySelector('body');
-    const burgerClose = document.querySelector(".menu-burger__close");
-
-
-    burger.addEventListener("click", () => {
-      mobileMenu.classList.add("menu-burger--active");
-      if (mobileMenu.classList.contains("menu-burger--active")) {
-        bodyLock.classList.add("lock");
-      }
-    });
-
-    burgerClose.addEventListener("click", () => {
-      mobileMenu.classList.remove("menu-burger--active");
-      bodyLock.classList.remove("lock");
-    });
-
-    document.addEventListener("click", function (e) {
-      if (e.target !== burger && e.target !== mobileMenu) {
-        mobileMenu.classList.remove("menu-burger--active");
-        bodyLock.classList.remove("lock");
-      }
-    });
-
-    mobileMenu.addEventListener("click", function (e) {
-      e.stopPropagation();
-    });
-  });
-  
   $(".reviews-slider__inner").slick({
     dots: true,
     infinite: false,
@@ -70,6 +58,37 @@ $(function () {
     } else {
       $(".top-restaurants__list.slick-initialized").slick("unslick");
     }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.querySelector('.burger');
+  const mobileMenu = document.querySelector('.menu-burger');
+  const bodyLock = document.querySelector('body');
+  const burgerClose = document.querySelector(".menu-burger__close");
+
+
+  burger.addEventListener("click", () => {
+    mobileMenu.classList.add("menu-burger--active");
+    if (mobileMenu.classList.contains("menu-burger--active")) {
+      bodyLock.classList.add("lock");
+    }
+  });
+
+  burgerClose.addEventListener("click", () => {
+    mobileMenu.classList.remove("menu-burger--active");
+    bodyLock.classList.remove("lock");
+  });
+
+  document.addEventListener("click", function (e) {
+    if (e.target !== burger && e.target !== mobileMenu) {
+      mobileMenu.classList.remove("menu-burger--active");
+      bodyLock.classList.remove("lock");
+    }
+  });
+
+  mobileMenu.addEventListener("click", function (e) {
+    e.stopPropagation();
   });
 });
 var mixer = mixitup('.category__content');
