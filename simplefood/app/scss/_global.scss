@@ -11,8 +11,7 @@ body {
   flex-direction: column;
   background-color: $default-bc;
 
-  &.lock,
-  &.lock-filter {
+  &.lock {
     overflow: hidden;
     position: relative;
     height: 100vh;
@@ -22,13 +21,6 @@ body {
       display: block;
       inset: 0;
       background-color: rgba($bg-anim, 0.50);
-    }
-  }
-
-  &.lock-filter {
-    &::after {
-      background-color: rgba($bg-anim, 0.15);
-      z-index: 20;
     }
   }
 
@@ -79,11 +71,6 @@ body {
 .f-jcfe {
   justify-content: flex-end;
 }
-
-.f-jcfs {
-  justify-content: flex-start;
-}
-
 
 .f-dc {
   flex-direction: column;
@@ -159,29 +146,6 @@ body {
   }
 
   @include burger();
-}
-
-@include mq('tablet-2') {
-  .filter {
-    position: relative;
-
-    &-close {
-      @include burger-close();
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      border-radius: 3px;
-      background: #FAEDED;
-      fill: $title;
-
-      &::before,
-      &::after {
-        height: 2px;
-        border-radius: 1px;
-        left: 8px;
-      }
-    }
-  }
 }
 
 .menu-burger {
@@ -369,7 +333,6 @@ body {
   &:hover {
     background-color: $default;
     box-shadow: none;
-    color: $decor;
   }
 
   &:focus {
@@ -452,7 +415,6 @@ body {
   padding: 6px 8px;
   margin-left: auto;
   margin-right: 20px;
-  transition: transform 0.5s;
 
   &__svg {
     width: 31px;
@@ -465,3 +427,42 @@ body {
   }
 }
 
+.filter {
+  @include mq('tablet-2') {
+    position: absolute;
+    top: 0;
+    flex-direction: column;
+    left: 0;
+    z-index: 99;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #fff;
+    height: 100vh;
+    overflow-y: auto;
+    width: 85%;
+    padding: 80px 50px 20px 0;
+    transform: translateX(-200%);
+
+    &--active {
+      transform: translateX(0%);
+    }
+  }
+}
+
+
+
+// .input-animation {
+//   background-color: $btn-anim;
+//   border: 1px solid $bg;
+//   border-radius: 3px;
+
+//   &:hover {
+//     border-color: $default;
+//     background: $btn-anim;
+//   }
+
+//   &:focus {
+//     border-color: $default;
+//     background: $btn-anim;
+//   }
+// }

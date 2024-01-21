@@ -172,10 +172,7 @@
         </div>
 
         <div class="catalog-product__inner d-flex">
-          <div class="catalog-product__filters filter d-flex f-dc f-jcfs">
-            <button class="filter-close close animation" type="button">
-              <span class="sr-only">закрыть меню</span>
-            </button>
+          <div class="catalog-product__filters filter">
             <div class="filter-category filter__item">
               <h2 class="filter__title">Категорії</h2>
               <form class="filter-category__form filter-form" action="#">
@@ -390,7 +387,7 @@
             </ul>
           </div>
         </div>
-        <div class="pagination d-flex f-jcfe">
+        <div class="pagination d-flex f-jcfe f-alc">
           <span class="pagination__prev pagination__arrows d-flex f-alc f-jcc"></span>
           <ul class="pagination__list d-flex">
             <li class="pagination__item">
@@ -451,13 +448,13 @@
         </div>
       </div>
     </section>
-    <!-- Slider main container -->
+
     <section class="promotions-discounts section">
       <div class="container">
         <h2 class="promotions-discounts__title title t-left">Акції та знижки</h2>
         <div class="promotions-discounts__inner swiper">
           <ul class="promotions-discounts__list d-flex swiper-wrapper">
-            <li class="promotions-discounts__item  d-flex swiper-slide">
+            <li class="promotions-discounts__item  d-flex">
               <article class="restaurants-card d-flex f-dc">
                 <img class="restaurants-card__img" src="images/products/resto-1.jpg" alt=" ресторан Blaze Pizza"
                   width="370" height="300">
@@ -466,7 +463,7 @@
                 </div>
               </article>
             </li>
-            <li class="promotions-discounts__item swiper-slide d-flex">
+            <li class="promotions-discounts__item swiper-slider d-flex">
               <article class="restaurants-card d-flex f-dc">
                 <img class="restaurants-card__img" src="images/products/resto-2.jpg" alt=" ресторан Pizza Runcho"
                   width="370" height="300">
@@ -475,7 +472,7 @@
                 </div>
               </article>
             </li>
-            <li class="promotions-discounts__item swiper-slide d-flex">
+            <li class="promotions-discounts__item swiper-slider d-flex">
               <article class="restaurants-card d-flex f-dc">
                 <img class="restaurants-card__img" src="images/products/resto-3.jpg" alt=" ресторан Pizza Hut"
                   width="370" height="300">
@@ -486,6 +483,9 @@
             </li>
           </ul>
           <div class="swiper-pagination"></div>
+          <div class="swiper-scrollbar"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </section>
@@ -626,7 +626,6 @@
   </footer>
 
   <script src="js/main.min.js"></script>
-  
 </body>
 
 </html>
