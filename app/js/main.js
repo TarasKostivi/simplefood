@@ -79,19 +79,69 @@ var swiper = new Swiper(".swiper", {
 });
 
 $(function () {
-  $('.select-style').styler({
-    locale: 'uk',
-    fileBrowse: 'Вибрати',
+  $(".interested-slider__inner").slick({
+    dots: false,
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    prevArrow: '<button type="button" class="interested-slider__arrow interested-slider__arrow--prev"><svg class="interested-slider__arrow-icon"><use xlink:href="images/sprite.svg#icon-arrow"></use></svg></button>',
+    nextArrow: '<button type="button" class="interested-slider__arrow interested-slider__arrow--next"><svg class="interested-slider__arrow-icon"><use xlink:href="images/sprite.svg#icon-arrow"></use></svg></button>',
+    responsive: [{
+        breakpoint: 993,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 561,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      }
+    ]
   });
 
-  
-  $(window).scroll(function () {
-    if ($(window).scrollTop() > 50) {
-      $('.header').addClass('header--fixed');
-    } else {
-      $('.header').removeClass('header--fixed');
-    }
+  $(".product-page__slider-list").slick({
+    dots: false,
+    infinite: false,
+    prevArrow: '<button type="button" class="product-page__arrow product-page__arrow--prev"><svg class="product-page__arrow-icon"><use xlink:href="images/sprite.svg#icon-arrow"></use></svg></button>',
+    nextArrow: '<button type="button" class="product-page__arrow product-page__arrow--next"><svg class="product-page__arrow-icon"><use xlink:href="images/sprite.svg#icon-arrow"></use></svg></button>',
+    responsive: [{
+      breakpoint: 770,
+      settings: {
+        arrows: false,
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      }
+    }, ]
   });
+
+  $('.product-tabs__link').on('click', function (e) {
+    e.preventDefault();
+    $('.product-tabs__link').removeClass('product-tabs__link--active');
+    $(this).addClass('product-tabs__link--active');
+
+    $('.product-tabs__content-item').removeClass('product-tabs__content-item--active');
+    $($(this).attr('href')).addClass('product-tabs__content-item--active');
+  });
+
+  $('.select-style, .product-page__item-num').styler({});
 
   $('.filter-price__input').ionRangeSlider({
     type: "double",
@@ -123,6 +173,14 @@ $(function () {
     }, ]
   });
 
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 50) {
+      $('.header').addClass('header--fixed');
+    } else {
+      $('.header').removeClass('header--fixed');
+    }
+  });
+
   $(window).on('load resize', function () {
     if ($(window).width() < 576) {
       $('.top-restaurants__list:not(.slick-initialized)').slick({
@@ -140,6 +198,25 @@ $(function () {
     }
   });
 
+  $(".star").rateYo({
+    starWidth: "16px",
+    normalFill: "#c1c1c1",
+    ratedFill: "#FFB800"
+  });
+
+  $(".anim-scrol").on("click", function (event) {
+    event.preventDefault();
+    const scrollAnchor = $(this).attr("href");
+    let scrollPoint = $(scrollAnchor).offset().top;
+
+    $("html, body").animate({
+        scrollTop: scrollPoint,
+      },
+      1500
+    );
+    return false;
+  });
 });
+
 
 var mixer = mixitup('.category__content');

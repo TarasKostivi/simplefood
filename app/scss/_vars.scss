@@ -4,6 +4,8 @@ $title: #363853;
 $accent: #31352B;
 $text: #505050;
 $title-sm: #c2c2c2;
+$star: #c1c1c1;
+$border-bottom: #E4E4E4;
 $default-bc: #F9FAFF;
 $bg: #ECECEC;
 $decor: #fff;
@@ -37,7 +39,8 @@ $xl: 1200px;
   border-radius: 6px;
 }
 
-%checkbox-hidden {
+%checkbox-hidden,
+%radio-hidden {
   width: 1px;
   height: 1px;
   overflow: hidden;

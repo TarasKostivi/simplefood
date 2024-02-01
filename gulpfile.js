@@ -16,6 +16,7 @@ const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
 const del = require('del');
 const browserSync = require('browser-sync').create();
+const fileInclude   = require('gulp-file-include'); 
 
 
 function browsersync() {
@@ -25,6 +26,17 @@ function browsersync() {
     },
     notify: false
   })
+}
+
+
+const htmlInclude = () => {
+  return src(['app/html/*.html'])										
+  .pipe(fileInclude({
+    prefix: '@',
+    basepath: '@file',
+  }))
+  .pipe(dest('app'))
+  .pipe(browserSync.stream());
 }
 
 
@@ -48,7 +60,9 @@ function scripts() {
       'node_modules/slick-carousel/slick/slick.js',
       'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
       'node_modules/jquery-form-styler/dist/jquery.formstyler.js',
+      'node_modules/fancybox/dist/js/jquery.fancybox.js',
       'node_modules/swiper/swiper-bundle.js',
+      'node_modules/rateyo/src/jquery.rateyo.js',
       'node_modules/mixitup/dist/mixitup.js',
       'app/js/main.js'
     ])
@@ -127,12 +141,14 @@ function cleanDist() {
 }
 
 function watching() {
+  watch(['app/html/**/*.html'], htmlInclude);
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/images/icons/*.svg', '!app/js/main.min.js'], svgSprites);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
+exports.htmlInclude = htmlInclude;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.browsersync = browsersync;
@@ -142,4 +158,4 @@ exports.svgSprites = svgSprites;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
 
-exports.default = parallel(svgSprites, styles, scripts, browsersync, watching);
+exports.default = parallel(htmlInclude, svgSprites, styles, scripts, browsersync, watching);

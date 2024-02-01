@@ -15,18 +15,18 @@
   <header class="header">
     <div class="container">
       <nav class="header__menu d-flex f-alc f-jcsb">
-        <a class="header__logo logo" href="#">
+        <a class="header__logo logo" href="index.html">
           <img class="header__logo-img logo-img" src="images/logo.svg" alt="логотип сайту" width="200" height="39">
         </a>
         <ul class="header__menu-list menu-list d-flex">
           <li class="menu-list__item">
-            <a class="menu-list__link animation" href="#">Головна</a>
+            <a class="menu-list__link animation" href="index.html">Головна</a>
           </li>
           <li class="menu-list__item">
             <a class="menu-list__link animation menu-list__link--active" href="#">Страви</a>
           </li>
           <li class="menu-list__item">
-            <a class="menu-list__link animation" href="#">Контакти</a>
+            <a class="menu-list__link anim-scrol animation" href="#contact">Контакти</a>
           </li>
         </ul>
         <ul class="user-list d-flex f-alc">
@@ -179,7 +179,7 @@
             <div class="filter-category filter__item">
               <h2 class="filter__title">Категорії</h2>
               <form class="filter-category__form filter-form" action="#">
-                <label class="filter-category__label">
+                <label class="filter-category__label filter-category__label--active">
                   <input class="filter-category__input" type="checkbox">
                   <span class="filter-category__checkbox animation">Бургери</span>
                 </label>
@@ -237,14 +237,14 @@
               <h2 class="filter__title">Ціна</h2>
               <form class="filter-price__form filter-form" action="#">
                 <div class="filter-price__label d-flex f-alc">
-                  <labe class="filter-price__label-box d-flex f-alc">
+                  <label class="filter-price__label-box d-flex f-alc">
                     <span class="filter-price__text">від</span>
                     <span class="filter-price__from"></span> ₴
-                  </labe>
-                  <labe class="filter-price__label-box d-flex f-alc">
+                  </label>
+                  <label class="filter-price__label-box d-flex f-alc">
                     <span class="filter-price__text">до</span>
                     <span class="filter-price__to"></span> ₴
-                  </labe>
+                  </label>
                 </div>
                 <label class="sr-only" for="filprice">виберіть ціну</label>
                 <input class="filter-price__input" type="text" id="filprice" data-min="100" data-max="1200"
@@ -257,7 +257,7 @@
             <ul class="catalog-product__list d-flex">
               <li class="catalog-product__item">
                 <article class="product-card d-flex f-dc">
-                  <a class="product-card__link" href="#">
+                  <a class="product-card__link" href="product-page.html">
                     <img class="product-card__img" src="images/category/photo-1.jpg"
                       alt="фото чізбургер з листями салату" width="140" height="140">
                   </a>
@@ -268,7 +268,7 @@
               </li>
               <li class="catalog-product__item">
                 <article class="product-card d-flex f-dc">
-                  <a class="product-card__link" href="#">
+                  <a class="product-card__link" href="product-page.html">
                     <img class="product-card__img" src="images/category/photo-2.jpg" alt="фото біфбургер" width="140"
                       height="140">
                   </a>
@@ -279,7 +279,7 @@
               </li>
               <li class="catalog-product__item d-flex f-alc f-dc">
                 <article class="product-card d-flex f-dc">
-                  <a class="product-card__link" href="#">
+                  <a class="product-card__link" href="product-page.html">
                     <img class="product-card__img" src="images/category/photo-3.jpg" alt="фото королівський чізбургер"
                       width="140" height="140">
                   </a>
@@ -404,9 +404,9 @@
               </a>
             </li>
             <li class="pagination__item">
-              <a class="pagination__link pagination-animation d-flex f-jcc f-alc" href="#">
+              <span class="pagination__link d-flex f-jcc f-alc">
                 ...
-              </a>
+              </span>
             </li>
             <li class="pagination__item">
               <a class="pagination__link pagination-animation d-flex f-jcc f-alc" href="#">
@@ -419,7 +419,7 @@
               </a>
             </li>
           </ul>
-          <a class="pagination__next pagination__arrows d-flex f-alc f-jcc" href="#"></a>
+          <a class="pagination__next pagination-animation pagination__arrows d-flex f-alc f-jcc" href="#"></a>
         </div>
       </div>
     </section>
@@ -491,12 +491,12 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-top section">
         <h2 class="sr-only">Контактна інфрормація</h2>
         <div class="connect footer-top__item">
-          <a class="logo footer-top__logo" href="#">
+          <a class="footer-top__logo logo" href="index.html">
             <img class="logo__img" src="images/logo.svg" alt="логотип" width="200" height="39">
           </a>
           <form class="form-user connect__form" action="#">
@@ -512,7 +512,7 @@
         </div>
         <ul class="contact-list">
           <li class="contact-list__item">
-            <a class="contact-list__link animation" href="#">
+            <a class="contact-list__link animation" href="index.html">
               Як це працює
             </a>
           </li>
