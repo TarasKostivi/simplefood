@@ -1,0 +1,190 @@
+.filter {
+  &__item {
+    border: 1px solid $bg;
+    background-color: $decor;
+    border-radius: 5px;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    padding: 15px;
+    @include font(24px, 1.2, 400);
+    letter-spacing: 0.03em;
+    position: relative;
+
+    &::after {
+      @include pseudo();
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $bg;
+    }
+  }
+
+  @include mq('tablet-2') {
+    position: absolute;
+    top: 0;
+    flex-direction: column;
+    left: 0;
+    z-index: 99;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #fff;
+    height: 100vh;
+    overflow-y: auto;
+    width: 85%;
+    padding: 80px 50px 20px 0;
+    transform: translateX(-200%);
+    transition: transform 0.5s;
+
+    &--active {
+      transform: translateX(0%);
+    }
+  }
+
+  &-category {
+    &__label {
+      display: block;
+      @include font(18px, 1, 400);
+      letter-spacing: 0.02em;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+
+    &__label--active {
+      color: $default;
+    }
+
+    &__input {
+      @extend %checkbox-hidden;
+    }
+  }
+
+  &-form {
+    padding: 25px 15px;
+  }
+
+  &-offers {
+    &__label {
+      display: block;
+      padding-left: 36px;
+
+      &:not(:last-child) {
+        margin-bottom: 13px;
+      }
+    }
+
+    &__input {
+      @extend %checkbox-hidden;
+      transition: color 0.3s;
+
+      &:checked~.filter-offers__checkbox {
+        background-image: url('../images/icons/icon-vector.svg');
+        @extend %bc-images;
+        background-size: 15px 10px;
+        border-color: $title;
+      }
+
+      &:hover+.filter-offers__checkbox+.filter-offers__text {
+        color: $default;
+        border-color: $default;
+      }
+
+      &:focus+.filter-offers__checkbox+.filter-offers__text {
+        color: $accent;
+        border-color: $default;
+      }
+    }
+
+    &__checkbox {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      border: 1px solid $bg;
+      background-color: $btn-anim;
+      margin-left: -36px;
+      margin-top: 3px;
+      position: absolute;
+
+      &:hover {
+        border-color: $default;
+      }
+
+      &:focus {
+        border-color: $default;
+      }
+    }
+  }
+
+  &-price {
+      .irs--flat .irs-line {
+    top: 30px;
+    height: 2px;
+    background-color: $title-sm;
+    border-radius: 4px;
+  }
+
+  .irs--flat .irs-bar {
+    top: 30px;
+    height: 2px;
+    background-color: $default;
+  }
+
+  .irs--flat .irs-handle>i:first-child {
+    width: 18px;
+    height: 18px;
+    border-radius: 50px;
+    background-color: $default;
+  }
+
+  .irs-from,
+  .irs-to,
+  .irs-single {
+    display: none;
+  }
+
+  .irs--flat .irs-min,
+  .irs--flat .irs-max {
+    display: none;
+  }
+
+  &__label {
+    @include font(16px, 1.2, 400);
+    color: $title-sm;
+  }
+
+  &__label-box {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__text {
+    letter-spacing: 0.03em;
+    margin-right: 5px;
+  }
+
+  &__from,
+  &__to {
+    padding: 12px 15px;
+    border-radius: 3px;
+    background-color: $btn-anim;
+    margin-right: 5px;
+    color: $accent;
+    width: 70px;
+    text-align: center;
+
+    &:focus {
+      box-shadow: 0 0 0 1px #FF6838;
+    }
+  }
+  }
+}

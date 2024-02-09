@@ -1,0 +1,129 @@
+.catalog-product {
+  &__top {
+    margin-bottom: 60px;
+  }
+
+  &__inner {
+    margin-bottom: 60px;
+
+    @include mq('tablet-2') {
+      justify-content: center;
+    }
+
+    @include mq('phone') {
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+
+    @include mq('phone') {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__filters {
+    width: 270px;
+    max-width: 100%;
+    margin-right: 30px;
+
+    @include mq('desktop') {
+      margin-right: 20px;
+    }
+  }
+
+  .jq-selectbox__select {
+    display: flex;
+    align-items: center;
+    height: 46px;
+    padding: 15px 40px 15px 15px;
+    border: 1px solid $title-sm;
+    border-radius: 3px;
+    background: $decor;
+    box-shadow: none;
+    color: #333;
+    text-shadow: none;
+    font-family: 'Rubik', sans-serif;
+    @include font(14px, 1.2, 400);
+    letter-spacing: 0.02em;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .jq-selectbox {
+    z-index: 2;
+  }
+
+  .jq-selectbox__trigger {
+    border-left: none;
+  }
+
+  .jq-selectbox:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .jq-selectbox__trigger-arrow {
+    position: absolute;
+    top: 18px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
+    border: none;
+    background-image: url('../images/icons/icon-chevron-down.svg');
+    @extend %bc-images;
+    background-size: contain;
+  }
+
+  .jq-selectbox__dropdown ul {
+    margin-top: 5px;
+    padding: 15px 40px 15px 15px;
+    border: 1px solid $title-sm;
+    border-radius: 3px;
+    background: $decor;
+    width: inherit;
+  }
+
+  .jq-selectbox li,
+  .jq-select-multiple li {
+    font-family: 'Rubik', sans-serif;
+    @include font(14px, 1.2, 400);
+    padding: 5px 0;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+
+    @include mq('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 15px;
+    }
+
+    @include mq('phone') {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 10px;
+    }
+  }
+
+  &__item {
+    max-width: 210px;
+    text-align: center;
+
+    @include mq('tablet') {
+      max-width: 225px;
+    }
+
+    @include mq('phone') {
+      max-width: 240px;
+    }
+  }
+}

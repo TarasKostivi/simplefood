@@ -1,0 +1,43 @@
+.comments {
+  border-bottom: 1px solid $border-bottom;
+
+  &:not(:last-child) {
+    margin-bottom: 25px;
+  }
+
+  &__figure {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    @include font(24px, 1.7, 500);
+    letter-spacing: 0.045em;
+    margin-bottom: 30px;
+  }
+
+  &__avatar {
+    border-radius: 50px;
+    margin-right: 25px;
+  }
+
+  &__author {
+    @include font(20px, normal, 500);
+    color: $text;
+  }
+
+  &__date {
+    display: block;
+    padding-top: 10px;
+    @include font(18px, 1.4, 400);
+    letter-spacing: 0.034em;
+  }
+
+  &__star {
+    margin-left: auto;
+    margin-bottom: 0;
+  }
+
+  &__blockquote {
+    padding-bottom: 20px;
+  }
+}

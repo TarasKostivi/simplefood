@@ -19,6 +19,7 @@ body {
     &::after {
       @include pseudo;
       display: block;
+      position: fixed;
       inset: 0;
       background-color: rgba($bg-anim, 0.50);
     }
@@ -154,8 +155,9 @@ body {
 
   &:hover {
     color: $default;
+
     @include mq('tablet') {
-    color: inherit;
+      color: inherit;
     }
   }
 
@@ -276,6 +278,11 @@ body {
     padding-right: 16px;
     position: relative;
     margin-right: 7px;
+    white-space: nowrap;
+
+    &:last-child {
+      @include line-clamp(1);
+    }
 
     &::after {
       @include pseudo();
@@ -344,10 +351,11 @@ body {
     background-color: rgba($decor, 0.10);
     box-shadow: 0 0 0 2px rgba($default, 0.70), 0 5px 12px 0 rgba($default, 0.20);
     color: $default;
+
     @include mq('tablet') {
-    background-color: inherit;
-    box-shadow: none;
-    color: inherit;
+      background-color: inherit;
+      box-shadow: none;
+      color: inherit;
     }
   }
 

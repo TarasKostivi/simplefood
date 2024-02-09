@@ -1,0 +1,74 @@
+.interested-slider {
+  position: relative;
+
+  padding-bottom: 60px;
+
+  &__arrow {
+    position: absolute;
+    top: -100px;
+    border: none;
+    background-color: transparent;
+    padding: 8px 13px 8px 10px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease-in-out;
+    border: 3px solid $title-sm;
+    cursor: pointer;
+    outline: transparent;
+    display: flex;
+    transition: border-color 0.3s,
+      background-color 0.3s,
+      fill 0.3s,
+      box-shadow 0.3s;
+
+    &--prev {
+      z-index: 5;
+      right: 60px;
+    }
+
+    &--next {
+      transform: rotate(180deg);
+      right: 0;
+    }
+
+    &:hover {
+      border-color: rgba($default, 0.50);
+      background-color: $btn-anim;
+
+      .slider__arrow-icon {
+        fill: rgba($default, 0.50);
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $default;
+    }
+
+    &:active {
+      box-shadow: none;
+      border-color: transparent;
+      background-color: $btn-anim;
+
+      .slider__arrow-icon {
+        fill: $default;
+      }
+    }
+  }
+
+  &__arrow-icon {
+    width: 10px;
+    height: 18px;
+    fill: $title-sm;
+  }
+
+  @include mq('tablet-2') {
+    @include slickDots();
+
+    .slick-dots {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+}

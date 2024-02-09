@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   catalogFilters.addEventListener('click', function (e) {
     e.stopPropagation();
   });
+
 });
 
 var swiper = new Swiper(".swiper", {
@@ -77,6 +78,7 @@ var swiper = new Swiper(".swiper", {
     },
   },
 });
+
 
 $(function () {
   $(".interested-slider__inner").slick({
@@ -107,6 +109,8 @@ $(function () {
       {
         breakpoint: 561,
         settings: {
+          autoplay: true,
+          infinite: false,
           arrows: false,
           dots: true,
           slidesToShow: 2,
@@ -174,7 +178,7 @@ $(function () {
   });
 
   $(window).scroll(function () {
-    if ($(window).scrollTop() > 50) {
+    if ($(window).scrollTop() > 100) {
       $('.header').addClass('header--fixed');
     } else {
       $('.header').removeClass('header--fixed');

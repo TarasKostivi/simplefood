@@ -16,7 +16,7 @@ const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
 const del = require('del');
 const browserSync = require('browser-sync').create();
-const fileInclude   = require('gulp-file-include'); 
+const fileInclude = require('gulp-file-include'); 
 
 
 function browsersync() {

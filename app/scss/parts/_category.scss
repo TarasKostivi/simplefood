@@ -1,0 +1,44 @@
+.category {
+  text-align: center;
+
+  &__content {
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    @include mq('desktop') {
+      justify-content: left;
+      gap: 20px;
+    }
+
+    @include mq('tablet-2') {
+      gap: 15px;
+    }
+
+    @include mq('tablet') {
+      gap: 13px;
+    }
+
+    @include mq('phone') {
+      gap: 5px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item {
+    background-color: $decor;
+    width: 17.5%;
+
+    @include mq('desktop') {
+      width: 23%;
+    }
+
+    @include mq('tablet') {
+      width: 31%;
+    }
+
+    @include mq('phone') {
+      width: 49%;
+    }
+  }
+}

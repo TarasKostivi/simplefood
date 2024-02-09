@@ -1,0 +1,20 @@
+.menu-list {
+  &__item:not(:last-child) {
+    margin-right: 40px
+  }
+
+  @include mq('tablet') {
+    &__item:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__link {
+    letter-spacing: 0.18px;
+
+    &--active {
+      color: $default;
+    }
+  }
+}

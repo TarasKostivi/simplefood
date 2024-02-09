@@ -1,0 +1,27 @@
+.top-restaurants {
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+
+    @include mq('tablet-2') {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+    }
+
+    @include mq('tablet') {
+      grid-template-columns: repeat(1, 1fr);
+      display: flex;
+      flex-direction: column;
+      @include slickDots();
+
+      .slick-list {
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+}

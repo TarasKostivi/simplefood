@@ -1,0 +1,46 @@
+.address-list {
+  &__item {
+    margin-bottom: 15px;
+  }
+
+  &__link {
+    @include font(16px, 2, 400);
+    @include line-clamp(2);
+    position: relative;
+    padding: 2px 2px 2px 32px;
+
+    &::before {
+      @include pseudo;
+      top: 8px;
+      left: 2px;
+      width: 15px;
+      height: 18px;
+      @extend %bc-images;
+    }
+
+    &--location {
+      &::before {
+        background-image: url('../images/icons/icon-location.svg');
+      }
+    }
+
+    &--call {
+      &::before {
+        background-image: url('../images/icons/icon-call.svg');
+        width: 19px;
+        height: 19px;
+      }
+    }
+
+    &--message {
+      &::before {
+        background-image: url('../images/icons/icon-message.svg');
+        width: 20px;
+      }
+    }
+  }
+
+  &__social-item:not(:last-child) {
+    margin-right: 12px;
+  }
+}
