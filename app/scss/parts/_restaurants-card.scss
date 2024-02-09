@@ -1,0 +1,94 @@
+.restaurants-card {
+  @include mq('tablet-2') {
+    width: 100%;
+
+    &__img {
+      border-radius: 10px 10px 0 0;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  background-color: $decor;
+  box-shadow: 0 3px 3px 0 hwb(0 0% 100% / 0.1);
+  border-radius: 10px;
+  transition: box-shadow 0.4s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 3px 15px 0px rgba($default, 0.5);
+  }
+
+  &__box {
+    padding: 15px 20px 20px 20px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 400;
+    @include line-clamp(3);
+  }
+
+  &__time {
+    padding-left: 32px;
+    position: relative;
+    font-size: 18px;
+    color: $accent;
+    opacity: 0.9;
+
+    &::before {
+      @include pseudo;
+      width: 22px;
+      height: 22px;
+      left: 0;
+      top: 3px;
+      background-image: url('../images/icons/timer-1.png');
+      @extend %bc-images;
+    }
+  }
+
+  &__btn {
+    background-color: $default;
+    border-radius: 20px;
+    padding: 2px 27px 2px 28px;
+    width: 79px;
+    position: relative;
+    transition: box-shadow 0.3s, background-color 0.3s, fill 0.3s, left 0.5s;
+
+    &:hover {
+      padding-left: 50px;
+
+      .restaurants-card__icon {
+        fill: $default;
+        left: 70%;
+      }
+    }
+
+    &:focus {
+      padding-left: 28px;
+
+      .top-product__icon {
+        fill: $default;
+      }
+    }
+
+    &:active {
+      padding-left: 28px;
+      box-shadow: none;
+
+      .top-product__icon {
+        fill: $default;
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    width: 14px;
+    height: 12px;
+    fill: $decor;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

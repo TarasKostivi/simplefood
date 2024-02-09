@@ -1,0 +1,15 @@
+.footer-bottom {
+  text-align: center;
+  background-color: $title;
+  width: 100%;
+  padding: 30px 0;
+
+  &__copy {
+    color: $decor;
+    @include font(14px, 1, 400);
+  }
+
+  @include mq('tablet') {
+    padding: 20px 0;
+  }
+}

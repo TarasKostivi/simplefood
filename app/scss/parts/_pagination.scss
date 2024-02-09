@@ -1,0 +1,70 @@
+.pagination {
+  padding-right: 250px;
+
+  @include mq('tablet') {
+    padding-right: 0;
+    justify-content: center;
+  }
+
+  &__item {
+    margin-right: 6px;
+    @include font(18px, 1, 400);
+    letter-spacing: 0.05em;
+
+    @include mq('phone') {
+      &:nth-child(2) {
+        display: none;
+      }
+
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    background-color: rgba($default, 0.10);
+    width: 48px;
+    height: 48px;
+    border-radius: 3px;
+
+    &--active {
+      box-shadow: 0 0 0 1px $title;
+    }
+  }
+
+  &__arrows {
+    position: relative;
+    background-color: rgba($default, 0.10);
+    width: 48px;
+    height: 48px;
+
+    &::before {
+      @include pseudo();
+      width: 15px;
+      height: 18px;
+      background-image: url('../images/sprite.svg#icon-chevron-left');
+      @extend %bc-images;
+      background-size: contain;
+    }
+  }
+
+  &__prev {
+    &::before {
+      filter: invert(91%) sepia(0%) saturate(258%) hue-rotate(147deg) brightness(87%) contrast(89%);
+    }
+
+    margin-right: 6px;
+  }
+
+  &__next {
+    &::before {
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
+      background-color: $default;
+    }
+  }
+}

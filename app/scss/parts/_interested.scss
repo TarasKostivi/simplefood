@@ -1,0 +1,16 @@
+.interested {
+  &__title {
+    text-align: left;
+  }
+
+  &__item {
+    padding: 15px 20px 15px 10px;
+    height: 335px;
+    text-align: center;
+
+    @include mq('tablet-2') {
+      padding: 10px 10px;
+    }
+  }
+
+}

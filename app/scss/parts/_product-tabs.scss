@@ -1,0 +1,76 @@
+.product-tabs {
+  padding-top: 30px;
+  padding-bottom: 60px;
+  max-width: 690px;
+  margin: 0 auto;
+
+  &__list {
+    margin-bottom: 30px;
+
+    @include mq('phone') {
+      overflow-y: auto;
+    }
+  }
+
+  &__item {
+    @include font(24px, 2.2, 400);
+
+    @include mq('phone') {
+      @include font(20px, 2.2, 400);
+    }
+  }
+
+  &__link {
+    display: block;
+    white-space: nowrap;
+  }
+
+  &__content-text {
+    @include font(20px, 1.8, 400);
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+
+    @include mq('phone') {
+      @include font(16px, 1.5, 400);
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 60px;
+
+    @include mq('phone') {
+      margin-right: 30px;
+    }
+  }
+
+  &__list-item {
+    @include font(20px, 1.8, 500);
+
+    @include mq('phone') {
+      @include font(16px, 1.8, 500);
+    }
+  }
+
+  &__span {
+    @include font(20px, 1.8, 400);
+    opacity: 0.9;
+  }
+
+  &__link--active {
+    color: $default;
+  }
+
+  &__content-item {
+    display: none;
+
+    &.product-tabs__content-item--active {
+      display: block;
+    }
+  }
+
+  &__comments {
+    margin-bottom: 60px;
+  }
+}

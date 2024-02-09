@@ -1,0 +1,29 @@
+.footer-top {
+  display: grid;
+  grid-template-columns: 200px auto auto;
+  grid-column-gap: 70px;
+
+  @include mq('desktop') {
+    grid-column-gap: 40px;
+  }
+
+  @include mq('tablet-2') {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include mq('tablet') {
+    grid-template-columns: none;
+    grid-column-gap: 70px;
+    grid-row-gap: 30px;
+  }
+
+  @include mq('phone') {
+    grid-template-columns: none;
+  }
+
+  &__logo {
+    margin-bottom: 27px;
+    display: block;
+  }
+}

@@ -1,0 +1,61 @@
+.header {
+  padding: 57px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  transition: padding 0.3s, background-color 0.3s;
+
+  &--fixed {
+    background-color: $decor;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    opacity: 0.9;
+    box-shadow: 0 0 0 2px rgba($bg-anim, 0.08);
+  }
+
+  @include mq('tablet') {
+    padding: 25px 0;
+  }
+
+  @include mq-height('phone') {
+    padding: 25px 0;
+  }
+
+  &__logo {
+    transition: box-shadow 0.3s, opacity 0.3s;
+    border-radius: 5px;
+    padding: 3px 1px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus {
+      opacity: 0.9;
+      box-shadow: 0 0 0 2px rgba($default, 0.70);
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  @include mq('tablet') {
+    &__logo-img {
+      width: 115px;
+      height: 23px;
+    }
+  }
+
+
+  &__menu-list {
+    margin-left: auto;
+    margin-right: 60px;
+
+    @include mq('tablet') {
+      display: none;
+    }
+  }
+}

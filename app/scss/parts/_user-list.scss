@@ -1,0 +1,72 @@
+.user-list {
+  &__item:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  &__icon {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: $accent;
+    stroke-width: 1.5;
+  }
+
+  &__btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    transition: background-color 0.3s, box-shadow 0.3s, stroke 0.3s;
+
+    &:hover {
+      background-color: $default;
+
+      .user-list__icon {
+        stroke: $decor;
+      }
+
+      .user-list__num {
+        background-color: $decor;
+        color: $default;
+      }
+    }
+
+    &:focus {
+      background-color: rgba($default, 0.10);
+      box-shadow: 0 0 0 2px rgba($default, 0.70);
+
+      .user-list__num {
+        background-color: $default;
+        color: $decor;
+      }
+    }
+
+    &:active {
+      background-color: rgba($default, 0.10);
+      box-shadow: none;
+
+      .user-list__num {
+        background-color: $default;
+        color: $decor;
+      }
+    }
+  }
+
+  &__num {
+    position: absolute;
+    padding: 1px 4px;
+    height: 14px;
+    border-radius: 50px;
+    background-color: $default;
+    top: 5px;
+    right: 4px;
+    @include font(10px, 1.5, 400);
+    color: $decor;
+    text-align: center;
+  }
+
+  @include mq('tablet') {
+    margin-left: auto;
+    padding-right: 20px;
+  }
+}
